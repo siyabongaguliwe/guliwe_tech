@@ -8,7 +8,8 @@ import { About } from "./components/sections/About";
 import { Projects } from "./components/sections/Projects";
 import "./index.css";
 import { Contact } from "./components/sections/Contact";
-import { RevealOnScroll } from "./components/RevealOnScroll"; // Import statement for RevealOnScroll
+import { RevealOnScroll } from "./components/RevealOnScroll"; 
+import { Footer } from "./components/Footer"; // Import Footer component
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,10 +29,10 @@ function App() {
         <About />
         <Projects />
         <Contact />
-        {/* Example usage of RevealOnScroll */}
         <RevealOnScroll>
-          <div>Your content here</div>
+          {/* Content removed */}
         </RevealOnScroll>
+        <Footer /> {/* Add Footer here */}
       </div>
     </>
   );

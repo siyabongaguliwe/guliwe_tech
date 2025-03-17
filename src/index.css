@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* General Styles */
 html,
 body {
   margin: 0;
@@ -7,8 +8,23 @@ body {
   font-family: "Space Grotesk", sans-serif;
   background: #0a0a0a;
   color: #f3f4f6;
+  scroll-behavior: smooth; /* Smooth scrolling */
 }
 
+/* Gradient Background Animation */
+.gradient-bg {
+  background: linear-gradient(90deg, rgba(30, 58, 138, 0.8), rgba(58, 82, 122, 0.8), rgba(58, 96, 112, 0.8));
+  background-size: 200% 200%;
+  animation: gradientAnimation 12s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animations */
 @layer utilities {
   @keyframes blink {
     0%,
@@ -36,15 +52,103 @@ body {
   .animate-loading-bar {
     animation: loading 0.8s ease infinite;
   }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal.stagger {
+    animation-delay: calc(var(--order) * 200ms);
+  }
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+/* Buttons */
+.button-ripple {
+  position: relative;
+  overflow: hidden;
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.button-ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.button-ripple:hover::after {
+  transform: scale(4);
+}
+
+.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 25px rgba(59, 130, 246, 0.6);
+  transition: all 0.3s ease;
+}
+
+/* Cards or Containers */
+.card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Icons */
+.icon:hover {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+  transition: filter 0.3s ease;
+}
+
+/* Responsive Typography */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* Gradient Border */
+.gradient-border {
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, #1e3a8a, #2563eb, #06b6d4);
+}
+
+/* Loader */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
