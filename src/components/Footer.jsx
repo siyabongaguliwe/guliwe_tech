@@ -9,7 +9,7 @@ export const Footer = () => {
           </p>
           <div className="mt-4 flex items-center justify-center space-x-6">
             <a
-              href="https://github.com"
+              href="https://github.com/siyabongaguliwe"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-500 transition"
@@ -17,7 +17,7 @@ export const Footer = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/guliwe-tech/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-500 transition"
@@ -25,7 +25,7 @@ export const Footer = () => {
               LinkedIn
             </a>
             <a
-              href="mailto:example@gmail.com"
+              href="mailto:siyabongaguliwe1@gmail.com"
               className="text-gray-400 hover:text-blue-500 transition"
             >
               Email
